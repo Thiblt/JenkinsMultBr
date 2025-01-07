@@ -2,20 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Build2') {
+        stage('Build') {
             steps {
-                echo 'Building2...'
+                echo "Building branch: ${env.BRANCH_NAME}"
+                sh 'echo Running build...'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                echo "Testing branch: ${env.BRANCH_NAME}"
+                sh 'echo Running tests...'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo "Deploying branch: ${env.BRANCH_NAME}"
+                sh 'echo Deploying to production...'
             }
         }
     }
 }
+
